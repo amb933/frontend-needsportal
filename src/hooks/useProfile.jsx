@@ -15,8 +15,6 @@ export const useProfile = (id) => {
 
 
                 setUser(data.user);
-
-                console.log("Hook", data.user);
             } catch (error) {
                 setError(error.message);
             } finally {

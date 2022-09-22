@@ -1,34 +1,45 @@
 import { useParams } from "react-router-dom";
 import useProfile from "../../hooks/useProfile";
+import useServices from "../../hooks/useServices"
 import { Loading } from "../loading/Loading";
 import { ErrorMessage } from "../errorMessage/ErrorMessage";
+import { ServicesList } from "../../components/servicesList/ServicesList";
 
 
 export const Profile = () => {
     const { id } = useParams();
 
-    console.log(id);
+
 
     const { user, loading, error } = useProfile(id);
-    console.log(user.username);
+    const { services } = useServices();
 
     if (loading) return <Loading />;
     if (error) return <ErrorMessage message={error} />;
 
+
+    console.log(user.avatar);
+    //Me falta saber por qué no me pilla UPLOADS_DIR
     return <section>
         <h1>{user.username}</h1>
 
-        <img src="https://yt3.ggpht.com/ytc/AMLnZu-35vqsYjGxr2ap7BTWjPHKC1sFUsFLsDAp4FhDnQ=s900-c-k-c0x00ffffff-no-rj" width={100} alt="avatar"></img>
+
+
+        <img
+            src={`${process.env.REACT_APP_BACKEND}/${process.env.UPLOADS_DIR}/${user.avatar}`}
+            alt="avatar"
+        />
         <p>
             {user.biography}
         </p>
         <p>
             {user.email}
         </p>
-        <ul>
-            <li>Lista servicios</li>
-        </ul>
-        <div>{user.createdAt}</div>
+
+        {/* Me falta filtrar por id de usuario */}
+        <ServicesList services={services} />
+
+        <div>{(user.createdAt).toLocaleString()}</div>
 
     </section>
 }
