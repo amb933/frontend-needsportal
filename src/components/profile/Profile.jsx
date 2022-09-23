@@ -14,32 +14,32 @@ export const Profile = () => {
     const { user, loading, error } = useProfile(id);
     const { services } = useServices();
 
+
     if (loading) return <Loading />;
     if (error) return <ErrorMessage message={error} />;
 
 
-    console.log(user.avatar);
-    //Me falta saber por qué no me pilla UPLOADS_DIR
     return <section>
         <h1>{user.username}</h1>
 
-
-
+        {/* Por qué funciona así y no `${process.env.REACT_APP_BACKEND}/uploads/${user.avatar}` */}
         <img
-            src={`${process.env.REACT_APP_BACKEND}/${process.env.UPLOADS_DIR}/${user.avatar}`}
+            src={`${process.env.REACT_APP_BACKEND}/${user.avatar}`}
             alt="avatar"
+            width={100}
         />
+
         <p>
             {user.biography}
         </p>
         <p>
             {user.email}
         </p>
-
         {/* Me falta filtrar por id de usuario */}
-        <ServicesList services={services} />
+        <ServicesList services={services} key={services.idUser} />
 
-        <div>{(user.createdAt).toLocaleString()}</div>
+
+        <div>{new Date((user.createdAt)).toLocaleString()}</div>
 
     </section>
 }
