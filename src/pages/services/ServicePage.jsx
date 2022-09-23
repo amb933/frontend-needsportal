@@ -7,13 +7,13 @@ export const ServicePage = () => {
         <button>Edit service</button>
         <br></br>
         <input type="checkbox" name="finish" value="finished" id="finished" />
-        <label for="finished">Mark as complete</label>
+        <label htmlFor="finished">Mark as complete</label>
         <p>Si me lo arreglas te compro un helau</p>
         <ul>
             <li>Cada respuesta</li>
         </ul>
         <ul> <li>
-            <label for="reply">Reply:</label>
+            <label htmlFor="reply">Reply:</label>
             <textarea name="reply" id="reply" rows="10" cols="80" placeholder="Insert a reply"></textarea>
         </li>
 

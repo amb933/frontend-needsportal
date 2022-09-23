@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 export const Header = () => {
     return <header>
         <Link to={'/'}>
-            <h1 class="title">DooIt</h1>
+            <h1 className="title">DooIt</h1>
         </Link>
-        <nav class="cont-nav">
+        <nav className="cont-nav">
             <img src="http://cdn.onlinewebfonts.com/svg/img_218286.png" alt="Icono" class="logo" />
             <input type="text" placeholder="Search a service"></input>
             <button>Search</button>

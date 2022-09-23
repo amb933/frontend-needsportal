@@ -24,7 +24,7 @@ export const Profile = () => {
 
         {/* Por qué funciona así y no `${process.env.REACT_APP_BACKEND}/uploads/${user.avatar}` */}
         <img
-            src={`${process.env.REACT_APP_BACKEND}/${user.avatar}`}
+            src={`${process.env.REACT_APP_BACKEND}/uploads/${user.avatar}`}
             alt="avatar"
             width={100}
         />
@@ -36,7 +36,7 @@ export const Profile = () => {
             {user.email}
         </p>
         {/* Me falta filtrar por id de usuario */}
-        <ServicesList services={services} key={services.idUser} />
+        <ServicesList services={services} id={user.id} key={services.idUser} />
 
 
         <div>{new Date((user.createdAt)).toLocaleString()}</div>

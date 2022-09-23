@@ -38,19 +38,19 @@ export const RegisterPage = () => {
           <legend>Register</legend>
           <ul>
             <li>
-              <label for="username">Username: </label>
+              <label htmlFor="username">Username: </label>
               <input
                 type="text"
                 name="name"
                 id="username"
                 value={username}
-                autofocus
+                autoFocus
                 required
                 onChange={(e) => setUsername(e.target.value)}
               />
             </li>
             <li>
-              <label for="email">Email:</label>
+              <label htmlFor="email">Email:</label>
               <input
                 type="email"
                 name="email"
@@ -61,7 +61,7 @@ export const RegisterPage = () => {
               />
             </li>
             <li>
-              <label for="pass1">Password:</label>
+              <label htmlFor="pass1">Password:</label>
               <input
                 type="password"
                 name="pass1"
@@ -72,7 +72,7 @@ export const RegisterPage = () => {
               />
             </li>
             <li>
-              <label for="pass2">Repeat password</label>
+              <label htmlFor="pass2">Repeat password</label>
               <input
                 type="password"
                 name="pass2"

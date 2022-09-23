@@ -1,8 +1,11 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import { logInUserService } from "../../services";
 
+
 export const LoginPage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -16,6 +19,8 @@ export const LoginPage = () => {
       const data = await logInUserService({ email, password })
 
       login(data.token)
+      navigate("/");
+
     } catch (error) {
       setError(error.message)
     }

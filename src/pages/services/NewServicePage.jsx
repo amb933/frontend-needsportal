@@ -5,18 +5,18 @@ export const NewServicePage = () => {
                 <legend>New Service</legend>
                 <ul>
                     <li>
-                        <label for="titleService">Title: </label>
+                        <label htmlFor="titleService">Title: </label>
                         <input
                             type="text"
                             name="title"
                             id="titleService"
                             placeholder="Name your service"
-                            autofocus
+                            autoFocus
                             required
                         />
                     </li>
                     <li>
-                        <label for="typeServices">Type of service</label>
+                        <label htmlFor="typeServices">Type of service</label>
                         <select name="typeServices" id="typeServices">
                             <option value="Various">Various</option>
                             <option value="programming">Programming and Development</option>
@@ -33,7 +33,7 @@ export const NewServicePage = () => {
                     </li>
 
                     <li>
-                        <label for="descriptionService">Description:</label>
+                        <label htmlFor="descriptionService">Description:</label>
                         <textarea name="description" id="descriptionService" rows="10" cols="80" placeholder="Describe your service"></textarea>
                     </li>
 

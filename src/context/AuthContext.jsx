@@ -1,11 +1,15 @@
 import { createContext, useState, useEffect } from "react";
-import { getMyDataService } from "../services";
+import { getMyUserDataService } from "../services";
+/* import { useNavigate } from "react-router-dom"; */
 
-export const AuthContext = createContext();
+export const AuthContext = createContext(null);
+
 
 export const AuthContextProviderComponent = ({ children }) => {
+  /* const navigate = useNavigate(); */
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
+
 
   useEffect(() => {
     localStorage.setItem("token", token);
@@ -14,7 +18,7 @@ export const AuthContextProviderComponent = ({ children }) => {
   useEffect(() => {
     const getUserData = async () => {
       try {
-        const data = await getMyDataService({ token });
+        const data = await getMyUserDataService(token);
         setUser(data);
       } catch (error) {
         logout()
@@ -32,7 +36,9 @@ export const AuthContextProviderComponent = ({ children }) => {
   const logout = () => {
     setToken("");
     setUser(null)
+    /*  navigate("/"); */
   }
+
   return (
     <AuthContext.Provider value={{ token, user, login, logout }}>{children}</AuthContext.Provider>
   );

@@ -1,8 +1,8 @@
 import '../components.css';
 
 export const TypeServices = () => {
-    return <li class="explore-services">Explore Services
-        <ul class= "cont-services">
+    return <li className="explore-services">Explore Services
+        <ul className="cont-services">
             <li>Programming and Development</li>
             <li>Design and art</li>
             <li>Music and Audio</li>
