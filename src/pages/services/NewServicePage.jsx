@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from '../../../src/context/AuthContext';
 
 
-export const NewServicePage = ({ addService }) => {
+export const NewServicePage = ({ addSnpmervice }) => {
 
     const navigate = useNavigate();
     const [error, setError] = useState('');

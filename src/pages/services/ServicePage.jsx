@@ -24,6 +24,8 @@ export const ServicePage = () => {
 
             <Service service={service} />
 
+            {/* Por qué no funciona el download? */}
+            <a href={`${process.env.REACT_APP_BACKEND}/uploads/${service.file}`} download>Previsualizar archivo adjunto</a>
 
         </section>
 

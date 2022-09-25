@@ -1,12 +1,39 @@
-import { useContext } from "react";
+import { useContext, /* useState */ } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { ErrorMessage } from "../../components/errorMessage/ErrorMessage";
 import { UserServices } from "../../components/userServices/UserServices";
 
-
 export const MyUserPage = () => {
 
     const { user } = useContext(AuthContext);
+    /*     const [biography, setBiograhy] = useState(undefined);
+        const [avatar, setAvatar] = useState(undefined); */
+
+    /* const editUser = () => {
+
+
+        <>
+            <li>
+                <label htmlFor="biography">Actualiza tu biografía</label>
+                <input
+                    type="textare"
+                    name="biography"
+                    id="biography"
+                    required
+                    onChange={(e) => setBiograhy(e.target.biography)}
+                    placeholder="Actualiza tu biografía"
+                />
+            </li>
+
+            <li>
+                <input type="file" name="file"
+                    onChange={(e) => setAvatar(e.target.value)}
+                />
+            </li>
+
+        </>
+
+    } */
 
 
     return user ? <>
@@ -27,8 +54,9 @@ export const MyUserPage = () => {
         <p>
             {user.user.email}
         </p>
+        {/* <button onClick={() => editUser()}>Edit user</button> */}
         <button>Edit user</button>
-    
+
         {user.user.id ?
             <ul>
                 <UserServices idUser={user.user.id}></UserServices>
