@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/AuthContext";
 import '../components.css';
 
 export const Auth = () => {
-   
+
     const { user, logout } = useContext(AuthContext);
 
     return user ? (<section>

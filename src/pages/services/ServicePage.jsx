@@ -1,26 +1,41 @@
-export const ServicePage = () => {
-    return <>
-        <h1>
-            Una aiurita porfavó
-        </h1>
-        <div>Various</div>
-        <button>Edit service</button>
-        <br></br>
-        <input type="checkbox" name="finish" value="finished" id="finished" />
-        <label htmlFor="finished">Mark as complete</label>
-        <p>Si me lo arreglas te compro un helau</p>
-        <ul>
-            <li>Cada respuesta</li>
-        </ul>
-        <ul> <li>
-            <label htmlFor="reply">Reply:</label>
-            <textarea name="reply" id="reply" rows="10" cols="80" placeholder="Insert a reply"></textarea>
-        </li>
+import { useParams } from "react-router-dom";
+import { useService } from "../../hooks/useService";
+import { ErrorMessage } from "../../../src/components/errorMessage/ErrorMessage"
+import { Service } from "../../components/service/Service";
 
-            <li>
-                <input type="file" />
-            </li>
-        </ul>
-        <button type="submit">Reply</button>
-    </>
+
+export const ServicePage = () => {
+
+    const { id } = useParams();
+    const { service, loading, error } = useService(id);
+
+    if (loading) return (<p>cargando UN SOLO servcicio....</p>);
+    if (error) return (<ErrorMessage message={error} />)
+
+
+
+    return (
+
+
+        <section>
+
+            <h1>Service from {service.username}</h1>
+
+
+            <Service service={service} />
+
+
+        </section>
+
+    )
+
 }
+
+
+
+
+
+
+
+
+

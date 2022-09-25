@@ -1,19 +1,39 @@
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { ErrorMessage } from "../../components/errorMessage/ErrorMessage";
+import { UserServices } from "../../components/userServices/UserServices";
+
+
 export const MyUserPage = () => {
-    return <>
+
+    const { user } = useContext(AuthContext);
+
+
+    return user ? <>
         <h1>
-            Moncho, nombre de usuario
+            {user.user.username}
+
         </h1>
-        <img src="https://yt3.ggpht.com/ytc/AMLnZu-35vqsYjGxr2ap7BTWjPHKC1sFUsFLsDAp4FhDnQ=s900-c-k-c0x00ffffff-no-rj" width={100} alt="avatar"></img>
+
+        {user.user.avatar ? <img
+            src={`${process.env.REACT_APP_BACKEND}/uploads/${user.user.avatar}`}
+            alt="avatar"
+            width={100}
+        /> : "Pon una fotito hombre"}
+
         <p>
-            Hola k ase? Esta es mi biografía
+            {user.user.biography}
         </p>
         <p>
-            ramon.viqueira@hotmail.com
+            {user.user.email}
         </p>
         <button>Edit user</button>
-        <ul>
-            Aquí vendría un array con los servicios creados por este usuario que todavía no tengo muy claro de donde vamos a sacar
-        </ul>
-        <div>35 de febrero de 2045, fecha de registro</div>
-    </>
+    
+        {user.user.id ?
+            <ul>
+                <UserServices idUser={user.user.id}></UserServices>
+            </ul>
+            : "No hay servicios creados por este usuario"}
+        <div>{new Date((user.user.createdAt)).toLocaleString()}</div>
+    </> : <ErrorMessage />
 }

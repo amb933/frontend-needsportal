@@ -10,7 +10,7 @@ export const Header = () => {
             <h1 className="title">DooIt</h1>
         </Link>
         <nav className="cont-nav">
-            <img src="http://cdn.onlinewebfonts.com/svg/img_218286.png" alt="Icono" class="logo" />
+            <img src="http://cdn.onlinewebfonts.com/svg/img_218286.png" alt="Icono" className="logo" />
             <input type="text" placeholder="Search a service"></input>
             <button>Search</button>
             <TypeServices />
