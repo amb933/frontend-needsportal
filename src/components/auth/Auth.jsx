@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import '../components.css';
+import './auth.css';
 
 export const Auth = () => {
-    return <ul class="auth">
+    return <ul className="auth">
         <li>
             <Link to={"/register"}>Register</Link>
         </li>
