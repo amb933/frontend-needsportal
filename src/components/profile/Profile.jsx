@@ -19,9 +19,11 @@ export const Profile = () => {
     if (error) return <ErrorMessage message={error} />;
 
 
+
     return <section>
         <h1>{user.username}</h1>
 
+        console.log(user.avatar);
         {/* Por qué funciona así y no `${process.env.REACT_APP_BACKEND}/uploads/${user.avatar}` */}
         <img
             src={`${process.env.REACT_APP_BACKEND}/uploads/${user.avatar}`}

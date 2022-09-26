@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import '../components.css';
+import './auth.css';
 
 export const Auth = () => {
 

@@ -1,18 +1,20 @@
 import { Auth } from "../auth/Auth"
 import { TypeServices } from "../typeServices/TypeServices"
-import '../components.css';
+import './header.css';
+import icon from "../../../src/assets/icon.png"
 import { Link } from "react-router-dom";
 
 
 export const Header = () => {
-    return <header>
-        <Link to={'/'}>
-            <h1 className="title">DooIt</h1>
-        </Link>
+    return <header className="header">
+
         <nav className="cont-nav">
-            <img src="http://cdn.onlinewebfonts.com/svg/img_218286.png" alt="Icono" className="logo" />
-            <input type="text" placeholder="Search a service"></input>
-            <button>Search</button>
+            <img src={icon} alt="Icono" className="logo" />
+
+            <Link to={'/'}>
+                <h1 className="title">DoIt!</h1>
+            </Link>
+
             <TypeServices />
             <Auth />
         </nav>
