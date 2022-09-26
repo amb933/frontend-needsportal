@@ -1,19 +1,100 @@
+import { useContext, useState, /* useState */ } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { ErrorMessage } from "../../components/errorMessage/ErrorMessage";
+import { UserServices } from "../../components/userServices/UserServices";
+import { editUserService } from "../../services";
+
 export const MyUserPage = () => {
-    return <>
+
+
+    const [error, setError] = useState("");
+    /* const navigate = useNavigate(); */
+    const [biography, setBiography] = useState(undefined);
+    const [avatar, setAvatar] = useState(undefined);
+    const { user, token } = useContext(AuthContext);
+
+    const handleForm = async (e) => {
+        setError("")
+        console.log("biofragia", biography);
+
+        try {
+            const data = new FormData(e.target);
+            await editUserService({ data, token });
+            e.target.reset()
+
+
+            /* navigate("/"); */
+
+        } catch (error) {
+            setError(error.message)
+        }
+    }
+
+    return user ? <>
+
+
+
+
+
+
+
         <h1>
-            Moncho, nombre de usuario
+            {user.user.username}
+
+
         </h1>
-        <img src="https://yt3.ggpht.com/ytc/AMLnZu-35vqsYjGxr2ap7BTWjPHKC1sFUsFLsDAp4FhDnQ=s900-c-k-c0x00ffffff-no-rj" width={100} alt="avatar"></img>
+
+        {user.user.avatar ? <img
+            //Hay veces que me funciona sin poner carpeta uploads y otras que tengo que ponerla
+            src={`${process.env.REACT_APP_BACKEND}/${user.user.avatar}`}
+            alt="avatar"
+            width={100}
+        /> : "Pon una fotito hombre"}
+
         <p>
-            Hola k ase? Esta es mi biografía
+            {user.user.biography}
         </p>
         <p>
-            ramon.viqueira@hotmail.com
+            {user.user.email}
         </p>
+        {/* <button onClick={() => editUser()}>Edit user</button> */}
         <button>Edit user</button>
-        <ul>
-            Aquí vendría un array con los servicios creados por este usuario que todavía no tengo muy claro de donde vamos a sacar
-        </ul>
-        <div>35 de febrero de 2045, fecha de registro</div>
-    </>
+
+        {/* Esta section va dentro de un popup */}
+        <section>
+            <form onSubmit={handleForm}>
+                <fieldset>
+                    <legend>Set yout changes</legend>
+                    <ul>
+                        <li>
+                            <label htmlFor="biography">Username: </label>
+                            <input
+                                type="text"
+                                name="biography"
+                                id="biography"
+                                value={biography}
+                                autoFocus
+                                required
+                                onChange={(e) => setBiography(e.target.value)}
+                            />
+                        </li>
+                        <li>
+                            <input type="file" name="avatar" value={avatar} onChange={(e) => setAvatar(e.target.value)} />
+                        </li>
+
+                    </ul>
+                </fieldset>
+                <button>Actualiza tus cambios</button>
+                {error ? <p>{error}</p> : null}
+            </form>
+        </section>
+
+
+        {user.user.id ?
+            <ul>
+                <UserServices idUser={user.user.id}></UserServices>
+            </ul>
+            : "No hay servicios creados por este usuario"}
+        <div>{new Date((user.user.createdAt)).toLocaleString()}</div>
+    </> : <ErrorMessage />
 }

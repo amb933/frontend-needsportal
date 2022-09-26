@@ -71,17 +71,17 @@ li {
     padding-bottom: 5px;
     padding-right: 10px;
     margin-left: 600px;
-    color:rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.6);
     list-style: none;
     cursor: pointer;
     padding: 20px;
     transition: 0.5s;
     justify-content: flex-end;
-    
+
 }
 
 li:hover {
-    color:  white;
+    color: white;
     transition: 0.5s;
 }
 
@@ -90,11 +90,11 @@ li:hover {
     display: none;
     transform: translateY(20px);
     transition: 0.5s;
-    
+
 }
 
 .cont-services>li {
-    color:grey;
+    color: grey;
     border: none;
     text-align: center;
     background-color: white;
@@ -103,7 +103,7 @@ li:hover {
     transform: translateX(-20px);
     padding: 20px;
     transition: 0.5s;
-    
+
 }
 
 .cont-services>li:hover {

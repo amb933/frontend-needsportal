@@ -13,6 +13,6 @@ export const ListServicesPage = () => {
             <Link to={"/newservice"}>New Service</Link>
 
         </button>
-        <ServicesList services={services} />
+        <ServicesList services={services}/>
     </>
 }
