@@ -4,7 +4,8 @@
 }
 
 *{
-    margin: 0px;
-
+    margin: 0;
+    box-sizing: border-box;
+    padding:0;
 }
 

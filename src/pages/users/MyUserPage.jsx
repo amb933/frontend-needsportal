@@ -1,4 +1,4 @@
-import { useContext, useState, /* useState */ } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { ErrorMessage } from "../../components/errorMessage/ErrorMessage";
 import { UserServices } from "../../components/userServices/UserServices";
@@ -9,13 +9,12 @@ export const MyUserPage = () => {
 
     const [error, setError] = useState("");
     /* const navigate = useNavigate(); */
-    const [biography, setBiography] = useState(undefined);
-    const [avatar, setAvatar] = useState(undefined);
+    const [biography, setBiography] = useState("");
+    const [avatar, setAvatar] = useState("");
     const { user, token } = useContext(AuthContext);
 
     const handleForm = async (e) => {
         setError("")
-        console.log("biofragia", biography);
 
         try {
             const data = new FormData(e.target);
@@ -31,17 +30,8 @@ export const MyUserPage = () => {
     }
 
     return user ? <>
-
-
-
-
-
-
-
         <h1>
             {user.user.username}
-
-
         </h1>
 
         {user.user.avatar ? <img
@@ -57,10 +47,10 @@ export const MyUserPage = () => {
         <p>
             {user.user.email}
         </p>
-        {/* <button onClick={() => editUser()}>Edit user</button> */}
+
         <button>Edit user</button>
 
-        {/* Esta section va dentro de un popup */}
+        {/* Esta section va dentro de un popup al hacer onClick en Edit user */}
         <section>
             <form onSubmit={handleForm}>
                 <fieldset>
@@ -92,8 +82,9 @@ export const MyUserPage = () => {
 
         {user.user.id ?
             <ul>
-                <UserServices idUser={user.user.id}></UserServices>
+                <UserServices></UserServices>
             </ul>
+
             : "No hay servicios creados por este usuario"}
         <div>{new Date((user.user.createdAt)).toLocaleString()}</div>
     </> : <ErrorMessage />

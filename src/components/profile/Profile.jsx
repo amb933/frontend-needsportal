@@ -6,13 +6,14 @@ import { ErrorMessage } from "../errorMessage/ErrorMessage";
 import { ServicesList } from "../../components/servicesList/ServicesList";
 
 
-export const Profile = () => {
+export const Profile = (filterServices) => {
     const { id } = useParams();
 
 
 
     const { user, loading, error } = useProfile(id);
     const { services } = useServices();
+    filterServices = services.filter(service => service.idUser === user.id);
 
 
     if (loading) return <Loading />;
@@ -23,10 +24,10 @@ export const Profile = () => {
     return <section>
         <h1>{user.username}</h1>
 
-        console.log(user.avatar);
+
         {/* Por qué funciona así y no `${process.env.REACT_APP_BACKEND}/uploads/${user.avatar}` */}
         <img
-            src={`${process.env.REACT_APP_BACKEND}/uploads/${user.avatar}`}
+            src={`${process.env.REACT_APP_BACKEND}/${user.avatar}`}
             alt="avatar"
             width={100}
         />
@@ -37,11 +38,12 @@ export const Profile = () => {
         <p>
             {user.email}
         </p>
-        {/* Me falta filtrar por id de usuario */}
-        <ServicesList services={services} id={user.id} key={services.idUser} />
-
-
         <div>{new Date((user.createdAt)).toLocaleString()}</div>
+
+        {/* Me falta filtrar por id de usuario */}
+        <ServicesList services={filterServices} />
+
+
 
     </section>
 }

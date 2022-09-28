@@ -1,12 +1,11 @@
 import { createContext, useState, useEffect } from "react";
 import { getMyUserDataService } from "../services";
-/* import { useNavigate } from "react-router-dom"; */
 
 export const AuthContext = createContext(null);
 
 
 export const AuthContextProviderComponent = ({ children }) => {
-  /* const navigate = useNavigate(); */
+
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
 
@@ -36,7 +35,6 @@ export const AuthContextProviderComponent = ({ children }) => {
   const logout = () => {
     setToken("");
     setUser(null)
-    /*  navigate("/"); */
   }
 
   return (

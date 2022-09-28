@@ -15,6 +15,7 @@ export const getAllServicesService = async () => {
 };
 
 
+
 export const registerUserService = async ({ username, email, password }) => {
     const response = await fetch(`${process.env.REACT_APP_BACKEND}/register`, {
         method: "POST",

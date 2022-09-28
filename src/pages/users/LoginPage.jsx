@@ -51,7 +51,7 @@ export const LoginPage = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <input type="checkbox" name="showPassword" value="showPassword" id="showPassword" />
-            <label for="showPassword">Show password</label>
+            <label htmlFor="showPassword">Show password</label>
           </li>
 
 

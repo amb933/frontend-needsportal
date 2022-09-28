@@ -1,21 +1,38 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 8rem 0;
+}
+
+
 .home-page-card {
-    
+
     display: grid;
     align-items: center;
     background-color: cadetblue;
-    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
-    margin: 20px 20px 20px 45px;
-    padding: 30px;
-}
-.home-page {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    /* position: relative; */
-    border-radius: 0.35rem;
+    margin: 2rem;
+    padding: 2rem;
     cursor: pointer;
-    margin: 10px;
 }
 
+
+/* VERSIÓN PC */
+/* .home-page {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(25%);
+    margin: 0 0 8rem 0;
+}
+
+
+.home-page-card {
+
+    display: grid;
+    align-items: center;
+    background-color: cadetblue;
+    gap: 1rem;
+    margin: 2rem;
+    padding: 2rem;
+    cursor: pointer;
+} */

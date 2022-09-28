@@ -1,31 +1,33 @@
 import './service.css';
 import { Link } from "react-router-dom";
 
+/* import devs from '../homePage/assets/Programming and Development.png';
+import business from './assets/Business.png';
+import admin from './assets/Administrative and Secretary.png';
+import design from './assets/Design and art.png';
+import digital from './assets/Digital Marketing.png'
+import music from './assets/Music and Audio.png';
+import various from './assets/Various.png';
+import video from './assets/Video and Animation.png';
+import writing from './assets/Writing and Translation.png'; */
+
 
 export const Service = ({ service }) => {
+
+
+
     return (
+
+
         <article>
-
-            {/* De la carpeta homepage */}
-            <p>Va a ser etiqueta imagen con la imagen del logo que tengamos del servicio</p>
-            <h2>{service.title}</h2>
-            <h3>{service.category} - {service.username}</h3>
+            {/* Creo que queda mejor sin foto */}
+            {/* <img src={devs} alt="Icono" className="logo" /> */}
+            <Link to={`/services/${service.id}`}>
+                <h2>{service.title}</h2>
+            </Link>
+            <h3>{service.category} - <Link to={`/users/${service.idUser}`}>{service.username}</Link></h3>
             <p>{service.description}</p>
-
-
-            <p>
-                By {service.username} on{''}
-                <Link to={`/services/${service.id}`}>
-                    {new Date(service.createdAt).toLocaleString()}
-                </Link>
-            </p>
-
-
-
-
-            {/* Esto sirve para el */}
-            {/* {service.file ? (
-           <img src={`${process.env.REACT_APP_BACKEND}/uploads/${service.file}`} alt={service.title}/>) : null} */}
+            <p>By {service.username} on{' '} {new Date(service.createdAt).toLocaleString()}</p>
         </article>
     )
 }

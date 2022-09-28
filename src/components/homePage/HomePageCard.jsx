@@ -20,7 +20,6 @@ export const HomePageCards = () => {
     <div className="home-page">
 
 <div className='home-page-card'>
-
     <img src={devs} alt='devs'/>
   <h1 className='home-page-card-title'>Programming and Development</h1>
   <p className='home-page-card-content'>

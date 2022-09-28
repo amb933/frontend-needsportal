@@ -5,9 +5,9 @@ export const ServicesList = ({ services }) => {
         <ul className="services-list">
             {services.map((service) => {
 
-                
-                return (<Service key={service.id} service={service} idUser={service.idUser}></Service>
-                );;
+
+                return (<Service key={service.id} service={service}></Service>
+                );
             })}
 
         </ul>
