@@ -1,26 +1,10 @@
 .footer {
-    width: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 20px;
-    font-size: 14px;
-    background-color: #0e1d34;
-    padding: 30px 15px 90px 35px;
-    color: white;
-    
+  font-size: 14px;
+  background-color: #0e1d34;
+  padding: 30px 15px 40px 35px;
+  color: white;
 }
 
-
-.copyright{
-       
-    text-align: center;
-    margin-top: 40px;
-    
+.footer .copyright {
+  text-align: center;
 }
-
-.p{
-    inline-size: 150px; 
-  overflow: hidden;
-}
-
